@@ -1,16 +1,16 @@
 :root {
   color-scheme: light;
-  --bg: #f7f8f5;
+  --bg: #f5f7f6;
   --paper: #ffffff;
-  --ink: #17201c;
-  --muted: #59645f;
-  --line: #d8ddd5;
-  --green: #1d6f5a;
-  --green-dark: #125544;
-  --blue: #245c8f;
-  --gold: #b8872f;
-  --soft-green: #e7f1ec;
-  --shadow: 0 24px 70px rgba(33, 43, 38, 0.13);
+  --ink: #18211d;
+  --muted: #5a6460;
+  --line: #d8deda;
+  --green: #1f5d50;
+  --green-dark: #17463d;
+  --blue: #315f79;
+  --gold: #8a6428;
+  --soft-green: #e8f0ed;
+  --shadow: 0 14px 36px rgba(20, 34, 29, 0.09);
 }
 
 * {
@@ -40,7 +40,7 @@ a {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid rgba(36, 92, 143, 0.5);
+  outline: 3px solid rgba(49, 95, 121, 0.5);
   outline-offset: 4px;
   border-radius: 6px;
 }
@@ -55,12 +55,13 @@ button:focus-visible {
   gap: 24px;
   min-height: 72px;
   padding: 0 clamp(20px, 5vw, 72px);
-  border-bottom: 1px solid rgba(216, 221, 213, 0.8);
-  background: rgba(247, 248, 245, 0.88);
+  border-bottom: 1px solid rgba(216, 222, 218, 0.82);
+  background: rgba(245, 247, 246, 0.9);
   backdrop-filter: blur(18px);
 }
 
 .brand {
+  color: var(--green-dark);
   font-size: 18px;
   font-weight: 760;
 }
@@ -180,9 +181,9 @@ h3 {
   gap: 12px;
   min-height: 44px;
   padding: 0 14px;
-  border: 1px solid rgba(198, 206, 198, 0.9);
+  border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.72);
+  background: var(--paper);
   color: var(--ink);
   font-size: 15px;
   font-weight: 720;
@@ -193,7 +194,7 @@ h3 {
 }
 
 .hero-jump a:hover {
-  border-color: rgba(29, 111, 90, 0.55);
+  border-color: rgba(31, 93, 80, 0.48);
   background: var(--soft-green);
   transform: translateY(-1px);
 }
@@ -227,7 +228,7 @@ h3 {
 
 .button.secondary {
   background: var(--paper);
-  color: var(--ink);
+  color: var(--blue);
 }
 
 .button:hover {
@@ -240,7 +241,7 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(232, 238, 245, 0.9)),
+    linear-gradient(135deg, #ffffff, #edf2f0),
     var(--paper);
   box-shadow: var(--shadow);
   overflow: hidden;
@@ -303,7 +304,7 @@ h3 {
   padding: 0 11px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
+  background: var(--paper);
   color: var(--green);
   font-size: 13px;
   font-weight: 740;
@@ -313,6 +314,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
+  counter-reset: research-item;
 }
 
 .research-item,
@@ -320,20 +322,21 @@ h3 {
 .notes-grid article {
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.66);
+  background: var(--paper);
   padding: 24px;
 }
 
-.research-item:nth-child(1) {
-  border-top: 4px solid var(--green);
+.research-item {
+  counter-increment: research-item;
 }
 
-.research-item:nth-child(2) {
-  border-top: 4px solid var(--blue);
-}
-
-.research-item:nth-child(3) {
-  border-top: 4px solid var(--gold);
+.research-item::before {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--green);
+  content: "0" counter(research-item);
+  font-size: 12px;
+  font-weight: 780;
 }
 
 .research-item ul {
@@ -357,7 +360,7 @@ h3 {
 
 .status {
   margin-top: 4px;
-  color: var(--blue);
+  color: var(--muted);
 }
 
 .notes-grid {
@@ -381,7 +384,7 @@ h3 {
   padding: 16px 20px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.62);
+  background: var(--paper);
 }
 
 .timeline span {
@@ -448,6 +451,17 @@ h3 {
   font-size: 18px;
 }
 
+.prose a,
+.research-item a,
+.work-list a,
+.notes-grid a,
+.detail-list a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-decoration-color: rgba(49, 95, 121, 0.42);
+  text-underline-offset: 0.16em;
+}
+
 .detail-list {
   display: grid;
   gap: 0;
@@ -501,7 +515,7 @@ h3 {
   border: 1px solid var(--line);
   border-left: 4px solid var(--green);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.66);
+  background: var(--paper);
 }
 
 .empty-state h3 {
@@ -526,7 +540,7 @@ h3 {
   padding: clamp(28px, 5vw, 52px);
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.66);
+  background: var(--paper);
 }
 
 .contact-method h2 {
@@ -538,6 +552,9 @@ h3 {
   font-size: clamp(16px, 2vw, 20px);
   font-weight: 720;
   overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-decoration-color: rgba(49, 95, 121, 0.42);
+  text-underline-offset: 0.16em;
 }
 
 .page-next {

@@ -39,7 +39,7 @@ function drawMesh() {
 
   const gradient = ctx.createLinearGradient(0, 0, width, height);
   gradient.addColorStop(0, "#ffffff");
-  gradient.addColorStop(1, "#e6f0eb");
+  gradient.addColorStop(1, "#e8f0ed");
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, width, height);
 
@@ -60,8 +60,8 @@ function drawMesh() {
       else ctx.lineTo(point.x, point.y);
     });
     ctx.closePath();
-    ctx.fillStyle = index % 3 === 0 ? "rgba(29, 111, 90, 0.11)" : "rgba(36, 92, 143, 0.09)";
-    ctx.strokeStyle = "rgba(29, 54, 47, 0.26)";
+    ctx.fillStyle = index % 3 === 0 ? "rgba(31, 93, 80, 0.1)" : "rgba(49, 95, 121, 0.08)";
+    ctx.strokeStyle = "rgba(24, 47, 40, 0.24)";
     ctx.lineWidth = 1.1;
     ctx.fill();
     ctx.stroke();
@@ -70,14 +70,14 @@ function drawMesh() {
   points.forEach((point, index) => {
     ctx.beginPath();
     ctx.arc(point.x, point.y, index % 5 === 0 ? 4 : 3, 0, Math.PI * 2);
-    ctx.fillStyle = index % 4 === 0 ? "#b8872f" : "#1d6f5a";
+    ctx.fillStyle = index % 4 === 0 ? "#8a6428" : "#1f5d50";
     ctx.fill();
   });
 
   ctx.beginPath();
   ctx.moveTo(width * 0.1, height * 0.82);
   ctx.bezierCurveTo(width * 0.32, height * 0.72, width * 0.6, height * 0.92, width * 0.9, height * 0.68);
-  ctx.strokeStyle = "rgba(184, 135, 47, 0.52)";
+  ctx.strokeStyle = "rgba(138, 100, 40, 0.42)";
   ctx.lineWidth = 3;
   ctx.stroke();
 }
