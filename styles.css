@@ -238,7 +238,10 @@ h3 {
 
 .visual-panel {
   position: relative;
-  min-height: 360px;
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 16 / 10;
+  justify-self: center;
   border: 1px solid var(--line);
   border-radius: 8px;
   background:
@@ -249,10 +252,11 @@ h3 {
 }
 
 #meshCanvas {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
-  height: min(58vw, 520px);
-  min-height: 360px;
+  height: 100%;
 }
 
 .visual-caption {
@@ -664,15 +668,6 @@ h3 {
 
   .hero-jump {
     max-width: none;
-  }
-
-  .visual-panel {
-    min-height: 300px;
-  }
-
-  #meshCanvas {
-    height: 330px;
-    min-height: 300px;
   }
 
   .site-footer {
